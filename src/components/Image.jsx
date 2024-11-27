@@ -2,14 +2,16 @@ import bgCardFront from '../images/bg-card-front.png'
 import bgCardBack from '../images/bg-card-back.png'
 import bgMainMobile from '../images/bg-main-mobile.png'
 
+import { useState } from 'react'
+
 import { Circle } from 'lucide-react'
 
-function Image() {
+function Image({ name, number, MM, YY, CVC }) {
     return (
         <>
             <div className='mt-[-12.5%] lg:mt-0 flex items-center justify-center relative'>
                 <img
-                    className='w-full lg:h-full lg:min-w-80 sm:mt-[-20%]'
+                    className='w-full lg:h-full lg:min-w-80 sm:mt-[-20%] lg:mt-auto'
                     src={bgMainMobile}
                     alt="Mobile background"
                 />
@@ -35,22 +37,22 @@ function Image() {
                     <span
                         className='text-lg lg:text-xl text-slate-100 absolute left-[40px] bottom-[-20px] lg:left-[200px] lg:bottom-[580px] lg:min-w-72'
                     >
-                        0000 0000 0000 0000
+                        {number ? number : '0000 0000 0000 0000'}
                     </span>
                     <span
                         className='text-sm font-extralight text-slate-100 absolute left-[40px] bottom-[-40px] lg:left-[200px] lg:bottom-[555px] lg:min-w-72'
                     >
-                        Jane Appleseed
+                        {name ? name : 'Jane Appleseed'}
                     </span>
                     <span
                         className='text-sm font-extralight text-slate-100 absolute left-[215px] bottom-[-40px] lg:left-[400px] lg:bottom-[555px]'
                     >
-                        00/00
+                        {MM ? MM : '00'}/{YY ? YY : '00'}
                     </span>
                     <span
                         className='text-sm font-medium text-slate-100 absolute left-[300px] bottom-[97.5px] lg:left-[450px] lg:bottom-[430px]'
                     >
-                        000
+                        {CVC ? CVC : '000'}
                     </span>
                 </div>
             </div>
